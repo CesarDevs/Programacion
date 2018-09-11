@@ -39,7 +39,7 @@ public class UsoGraficos {
    
     
     }
-        private static class DrawCanvas extends JPanel {
+    private static class DrawCanvas extends JPanel {
       // Override paintComponent to perform your own painting
       @Override
       public void paintComponent(Graphics g) {

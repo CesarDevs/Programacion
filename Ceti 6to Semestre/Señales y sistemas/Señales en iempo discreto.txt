@@ -1,0 +1,169 @@
+Señales en tiempo discreto
+
+Las señales pueden ser discretas en el tiempo o continuas, Si hablo or ejemplo, mi voz es una señal continua en el tiempo, es finita en un intervalo muy pequeño de tiempo.
+Si el OTDR. en contra parte, almacena señales en el tiempo discreto, esto significa, que tiene un numero finito de muestras en un intervalo de tiempo dado.
+Una señal de tiempo discrto  x(n) es una funcion de una variable independiente entera, Graficamente
+
+Pueden ser positivos o negativos
+
+1.-El impulso unitario se denomina Lamda(n) y se define
+
+
+Lamda= 1 para n=0
+	   0 para n!=0
+
+
+Es una señal que vale siempre sero excepto en n=0 donde vale 1
+
+2.- La señal escalon unitario se denota como u(n) y se defina omo
+
+u(n)= 1, pra n >= 0
+      0, para n < 0
+
+
+3.- La señal rampa se denota como s(n) y se define como
+
+s(n)= n, para n>0
+	  0, para n<0
+
+
+4.- La selak exponencial es una secuecia de la forma
+
+x(n)= a^n para todo valor de n
+
+si a<0 es decreciente 
+si a>0 es creciente
+
+
+
+2.1.2 Clasificacion de señales en el tiempo discreto
+
+A)Señales periodicas y a-periodicas
+
+Una señal x(n) es periodica con periodo N(N>0)si y solo si 
+  x(n+N)= x(n) para todo valor de n
+
+El valor mas pequeño de N para que la ecuacion anterior se verifique se denomina periodo fundamental. Si la ecuacion no se cumple para ningun valor de N, la señal se denomina aperiodica o no periodica
+
+
+B) Señales simetricas (pares) y asimetricas (impares)
+
+Una señal real x(n) se denominasimetrica (par) si
+X(-n)=x(n)
+
+Por otro lado, una señal se le llama asimetrica (impar) si
+X(-n)=-x(n)
+
+
+Si x(n) es impar, x(0)= 0
+
+
+
+2.1.3 Suma, multiplicacion y escalado de secuencias 
+
+Hay manipulaciones simples en donde intervienen la variable independiente y la amplitud de la señal (variable dependiente). Estas modificaciones d ela amplitud incluyen suma, multiplicacion y escalado de las señales discretas en el tiempo
+
+El escalado de amplitud de una señal por una constante A se obtiene Multiolicando el valor de cada muestra de la señal por A. Asi e obtiene
+
+Y(n )= A(n)  -inf<n<inf
+
+
+
+La suma de dos señales x1(n) y x2(n) cuyo valor en cualquier instante es igual a la suma de los valores en ese instante de las dos señales es decir.
+
+Y(n)= x(n) + x2(n)   -inf < n < inf
+
+
+El producto de define analogicamente en cada instante de tiempo como
+
+Y(n) = x1(n)x2(n)  -inf < n < inf
+
+
+2.2 Sistemas en tiempo discreto
+
+En muchas aplicaciones del procesado de señal digital es necesario diseñar dispositivos o algoritmos que realicen operaciones sobre señales en tiempo discreto. A estos dispositivos se les llama sistemas en tiempo discreto o sistemas discretos
+Especificamente un sistema discreto es un dispositivo que opera sobre una excitacion o señal de entrada en tiempo discreto segun una regla preestablecida para generar ottra señal en tiempo discreto denominada salida o respuesta del sistema. Se puede decir que un sistema es un conjunto de operaciones que se realizan sobre la señal de entrada x(n) para producir una selka de salida y(n) Esta relacio puede reprecentar
+
+y(n) === T(x(n))
+
+donde T es la transformacion u operador, o procesando realizado por el sistema sobre x(n) para producir y(n). La relacion entrada-salida y T  se puede ver donde T es el sistema discreto o Caja negra que actua sore la señal de entrada
+
+
+2.2.1 Representacion de sistemas discretos mediante diagramas de bloques
+
+Sumador
+
+En la siguiente figura se muestra como se realiza la suma de dos señales, formando una tercera, Cabe destacar que no se necesitan dispositivos de memoria para sumar
+
+Y(n) = x1(n)+ x2(n)
+
+
+x1(n)->----------
+	   -------Sumador -->
+x2(n)-> ---------
+
+
+
+Multiplicador por una constante
+
+Esta operacion consiste en aplicar un factor de escala a la entrada x(n)Tampoco requiere memoria
+
+X(n) ----> a ----> y(n)=ax(n)
+
+
+Multilicador de señal
+
+La figura muestra como se multiplican dos señales para formar otra secuencia o producto denotada por y(n) Es tambien una operacion sin memoria
+			---
+x1(n)-----> |X| ----> y(n) = x1(n)x2(n)
+			---
+			 ^
+			 |
+			x2(n)
+
+
+Retardador de un elemnto
+
+E retardador de un elemento es un sistema especial que retrasa una posicion la señal que pasa por el. Si la señal de entrada es x(n), la salida seria x(n-1). La muestra x(n-1) se almacena en una memoria en el instante n-1 y se extrae de la memoria en el instante n para formar
+
+y(n) = x(n-1)
+
+
+Lo que significa que este sistema si quiere de memoria, El simbolo Z^1 denota un retraso
+
+
+X(n)  -->  |z^-1 |  --> y(n)= X(n-1)
+
+
+
+
+Adelantador de un elemento
+
+Este funciona de forma inversa al retardador. Es decir una entrada x(n) es adelantada en el tiempo para producir x(n+1).
+Esta operacion es imposible
+
+
+
+2.2.2 Sstemas discretos lineales e invariantes en el tiempo
+
+Podemos hacer 2 subdiviciones de sistemas, los que verian en el tiempo y los que no. Un sistema se dice que es invariante en el tiempo cuando sus caractaristicas de entrada - salida no cambian con el tiempo. Se puede definir esto de la siguiente manera
+Un sistema en reporso T es invariante ne el tiempo si y solo si
+
+Implica que     x(n)--T-->y(m)
+				x(n-k)--T-->y(n-k)
+
+Un sistema lineal es aquel que satisface el principio de superpocicion, De forma sencilla se puede decir que el principio de suerposicion exige que la respuesta del sistema a una suma ponderada de señales sea igual a la correspondiente suma ponderada de las salidas a cada una de las señales de entrada. Segun el siguiente teorema:
+
+Un sistema es lineal si y solo si
+	T(a1x1(n)+a2x2(n))=a1T(x(n)) + a2T(x2(n))
+
+Para cualquier secuencia arbitraria de entrada x1(n) y x2(n) y cuales queira constantes arbitraias a1 y a2
+
+Un sistema lineal en reposo con entrada 0 produce salida cero. Si el sistema produce una salida distinta de cero cuando la entrada es 0, el sistema no es en reposo o no lineal.
+
+
+
+
+
+
+ 
